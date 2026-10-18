@@ -40,6 +40,7 @@ static int cancel_cb(void*x){return [(LBLicensebox*)x cancelValue];}
  }@finally{_busy=NO;[_lock unlock];}
 }
 - (id)lease:(NSError**)e{return [self call:@"lease" arguments:@{} error:e];}
+- (id)heartbeatModule:(NSString*)m error:(NSError**)e{return [self call:@"heartbeat" arguments:@{@"module":m} error:e];}
 - (id)requireModule:(NSString*)m error:(NSError**)e{return [self call:@"require" arguments:@{@"module":m} error:e];}
 - (id)status:(NSError**)e{return [self call:@"status" arguments:@{} error:e];}
 - (id)signInWithTimeout:(double)t error:(NSError**)e{return [self call:@"sign_in" arguments:@{@"timeout":@(t)} error:e];}

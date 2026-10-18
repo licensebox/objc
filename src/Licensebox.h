@@ -18,6 +18,7 @@
 - (instancetype)initWithProduct:(NSString *)product keys:(NSDictionary *)keys options:(NSDictionary *)options callbacks:(id<LBLicenseboxCallbacks>)callbacks error:(NSError **)error;
 - (BOOL)close:(NSError **)error;
 - (id)lease:(NSError **)error;
+- (id)heartbeatModule:(NSString *)module error:(NSError **)error;
 - (id)requireModule:(NSString *)module error:(NSError **)error;
 - (id)status:(NSError **)error;
 - (id)signInWithTimeout:(double)timeout error:(NSError **)error;
