@@ -17,4 +17,4 @@ for target in adapter lifetime; do
  clang "${flags[@]}" -I"$inc" -I"$LICENSEBOX_INCLUDE_DIR" -Isrc test/$target.m build/liblicensebox-objc.a -L"$LICENSEBOX_LIB_DIR" -llicensebox -L"$objc_lib_dir" "${libs[@]}" -o build/$target
 done
 build/lifetime
-tar -czf build/licensebox-objc-0.1.0.tar.gz LICENSE src ci test
+tar -czf build/licensebox-objc-0.2.0.tar.gz LICENSE src ci test
