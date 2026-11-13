@@ -27,6 +27,11 @@
 - (id)requests:(NSError **)error;
 - (id)requestModules:(NSArray *)modules note:(NSString *)note error:(NSError **)error;
 - (NSString *)accessLink:(NSError **)error;
+/* Service accounts and floating copies: requireModule checks a floating module
+ * out by itself; options may carry enrol_token (else LICENSEBOX_ENROL_TOKEN). */
+- (id)enrolWithToken:(NSString *)token error:(NSError **)error;
+- (id)checkoutModule:(NSString *)module error:(NSError **)error;
+- (BOOL)checkinModules:(NSArray *)modules error:(NSError **)error;
 - (BOOL)recordCommand:(NSString *)command success:(BOOL)success elapsed:(double)elapsed error:(NSError **)error;
 + (NSString *)deriveBindingForProduct:(NSString *)product source:(NSString *)source rawID:(NSString *)raw error:(NSError **)error;
 + (NSString *)nativeBindingForProduct:(NSString *)product error:(NSError **)error;

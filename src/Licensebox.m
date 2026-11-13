@@ -49,6 +49,9 @@ static int cancel_cb(void*x){return [(LBLicensebox*)x cancelValue];}
 - (id)requests:(NSError**)e{return [self call:@"requests" arguments:@{} error:e];}
 - (id)requestModules:(NSArray*)m note:(NSString*)n error:(NSError**)e{return [self call:@"request" arguments:@{@"modules":m,@"note":n?:@""} error:e];}
 - (NSString*)accessLink:(NSError**)e{return [self call:@"access-link" arguments:@{} error:e];}
+- (id)enrolWithToken:(NSString*)t error:(NSError**)e{return [self call:@"enrol" arguments:@{@"token":t?:@""} error:e];}
+- (id)checkoutModule:(NSString*)m error:(NSError**)e{return [self call:@"checkout" arguments:@{@"module":m?:@""} error:e];}
+- (BOOL)checkinModules:(NSArray*)m error:(NSError**)e{return [self call:@"checkin" arguments:@{@"modules":m?:@[]} error:e]!=nil;}
 - (BOOL)recordCommand:(NSString*)c success:(BOOL)s elapsed:(double)t error:(NSError**)e{return [self call:@"record" arguments:@{@"command":c,@"success":@(s),@"elapsed":@(t)} error:e]!=nil;}
 + (NSString*)deriveBindingForProduct:(NSString*)p source:(NSString*)s rawID:(NSString*)r error:(NSError**)e {
  while([r length]&&[r characterAtIndex:[r length]-1]==0)r=[r substringToIndex:[r length]-1];if(!clean(p)||!clean(s)||!clean(r)){fail(e,@"identity_unavailable",nil);return nil;}
